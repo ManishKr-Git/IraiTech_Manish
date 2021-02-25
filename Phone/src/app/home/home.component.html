@@ -1,0 +1,24 @@
+<div class="container" *ngIf='isPhoneExist'>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Phone Number</th>
+        <th *ngIf='moreThanOne'>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of phone">
+        <td>{{p.phone}}</td>
+        <td *ngIf='moreThanOne'><button class="btn btn-danger" (click)='deleteNumber(p)'>&times;</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="container">
+  <form (ngSubmit)='save()'>
+    <fieldset class="form-group">
+      <input type="phone" name="phone number" id="" class="form-control" [(ngModel)]="number">
+    </fieldset>
+    <button type="submit" class="btn btn-success">Add Another Phone Number</button>
+  </form>
+</div>
